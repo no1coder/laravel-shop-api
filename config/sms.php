@@ -21,10 +21,10 @@ return [
         'aliyun' => [
             'access_key_id' => env('SMS_AK'),
             'access_key_secret' => env('SMS_SK'),
-            'sign_name' => '身份验证',
+            'sign_name' => env('SMS_SIGN'),
         ],
     ],
 
     // 短信模板
-    'template' => 'SMS_6930023'
+    'template' => env('SMS_TEMPLATE')
 ];

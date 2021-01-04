@@ -40,7 +40,6 @@ class SendSmsListener implements ShouldQueue
                 'template' => $config['template'],
                 'data' => [
                     'code' => $code,
-                    'product' => $event->product
                 ],
             ]);
         } catch (\Exception $e) {
