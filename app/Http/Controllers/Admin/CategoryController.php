@@ -22,7 +22,7 @@ class CategoryController extends BaseController
     }
 
     /**
-     * 添加分类 最大3级分类
+     * 添加分类 最大2级分类
      */
     public function store(Request $request)
     {
@@ -77,8 +77,8 @@ class CategoryController extends BaseController
         $level = $pid == 0 ? 1 : (Category::find($pid)->level + 1);
 
         // 不能超过3级分类
-        if ($level > 3) {
-            return $this->response->errorBadRequest('不能超过三级分类');
+        if ($level > 2) {
+            return $this->response->errorBadRequest('不能超过二级分类');
         }
 
         return [

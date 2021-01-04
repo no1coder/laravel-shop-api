@@ -15,8 +15,10 @@ class GoodTransformer extends TransformerAbstract
     public function transform(Good $good)
     {
         $pics_url = [];
-        foreach ($good->pics as $p) {
-            array_push($pics_url, oss_url($p));
+        if (!empty($good->pics)) {
+            foreach ($good->pics as $p) {
+                array_push($pics_url, oss_url($p));
+            }
         }
 
         return [

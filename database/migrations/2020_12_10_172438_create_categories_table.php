@@ -15,6 +15,7 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('group')->default('goods')->comment('分组: goods 商品分类, menu 菜单');
             $table->string('name')->comment('分类名称');
             $table->integer('pid')->default(0)->comment('父级');
             $table->tinyInteger('status')->default(1)->comment('状态: 0禁用 1启用');

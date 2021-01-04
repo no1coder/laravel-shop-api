@@ -21,12 +21,12 @@ if (!function_exists('categoryTree')) {
                             $query->where('status', $status);
                         });
                 },
-                'children.children' => function($query) use ($status) {
-                    $query->select(['id','pid','name','level','status'])
-                        ->when($status !== false, function ($query) use ($status) {
-                        $query->where('status', $status);
-                    });
-                }
+//                'children.children' => function($query) use ($status) {
+//                    $query->select(['id','pid','name','level','status'])
+//                        ->when($status !== false, function ($query) use ($status) {
+//                        $query->where('status', $status);
+//                    });
+//                }
             ])
             ->get();
 

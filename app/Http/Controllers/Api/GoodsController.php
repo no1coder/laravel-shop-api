@@ -18,6 +18,7 @@ class GoodsController extends BaseController
         // 搜索条件
         $title = $request->query('title');
         $category_id = $request->query('category_id');
+        $recommend = $request->query('recommend', false);
 
         // 排序
         $sales = $request->query('sales');
@@ -27,6 +28,9 @@ class GoodsController extends BaseController
         // 商品的分页数据
         $goods  = Good::select('id', 'title', 'price', 'cover', 'category_id', 'sales', 'updated_at')
             ->where('is_on', 1)
+            ->when($recommend, function ($query) use ($recommend) {
+                $query->where('is_recommend', 1);
+            })
             ->when($title, function ($query) use ($title) {
                 $query->where('title', 'like', "%{$title}%");
             })
@@ -44,13 +48,14 @@ class GoodsController extends BaseController
                 $query->orderBy('comments_count', 'desc');
             })
             ->orderBy('updated_at', 'desc')
-            ->simplePaginate(20)
+            ->simplePaginate(10)
             ->appends([
                 'title' => $title,
                 'category_id' => $category_id,
                 'sales' => $sales,
                 'price' => $price,
                 'comments_count' => $comments_count,
+                'recommend' => $recommend,
             ]);
 
         // 推荐商品

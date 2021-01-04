@@ -17,86 +17,132 @@ class CategorySeeder extends Seeder
         // 填充分类信息
         $categories = [
             [
-                'name' => '电子数码',
+                'name' => '前沿',
                 'group' => 'goods',
                 'pid' => 0,
                 'level' => 1,
                 'children' => [
                     [
-                        'name' => '手机',
+                        'name' => '区块链',
                         'group' => 'goods',
-                        'level' => 2,
-                        'children' => [
-                            [
-                                'name' => '华为',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                            [
-                                'name' => '小米',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                        ]
+                        'level' => 2
                     ],
                     [
-                        'name' => '电脑',
+                        'name' => '人工智能',
                         'group' => 'goods',
-                        'level' => 2,
-                        'children' => [
-                            [
-                                'name' => '联想',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                            [
-                                'name' => '戴尔',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                        ]
+                        'level' => 2
                     ],
                 ]
             ],
             [
-                'name' => '服装衣帽',
+                'name' => '前端',
                 'group' => 'goods',
                 'pid' => 0,
                 'level' => 1,
                 'children' => [
                     [
-                        'name' => '男装',
+                        'name' => '小程序',
                         'group' => 'goods',
-                        'level' => 2,
-                        'children' => [
-                            [
-                                'name' => '海澜之家',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                            [
-                                'name' => 'Nike',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                        ]
+                        'level' => 2
                     ],
                     [
-                        'name' => '女装',
+                        'name' => 'JavaScript',
                         'group' => 'goods',
-                        'level' => 2,
-                        'children' => [
-                            [
-                                'name' => '欧时力',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                            [
-                                'name' => 'Only',
-                                'group' => 'goods',
-                                'level' => 3,
-                            ],
-                        ]
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'HTML/CSS',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'Vue',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'React',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'ES6',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'Node.js',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                ]
+            ],
+            [
+                'name' => '后端',
+                'group' => 'goods',
+                'pid' => 0,
+                'level' => 1,
+                'children' => [
+                    [
+                        'name' => 'Java',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'PHP',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'Python',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => 'GoLang',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                ]
+            ],
+            [
+                'name' => '云计算',
+                'group' => 'goods',
+                'pid' => 0,
+                'level' => 1,
+                'children' => [
+                    [
+                        'name' => '私有云',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => '公有云',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => '混合云',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                ]
+            ],
+            [
+                'name' => '产品设计',
+                'group' => 'goods',
+                'pid' => 0,
+                'level' => 1,
+                'children' => [
+                    [
+                        'name' => 'UI设计',
+                        'group' => 'goods',
+                        'level' => 2
+                    ],
+                    [
+                        'name' => '网站设计',
+                        'group' => 'goods',
+                        'level' => 2
                     ],
                 ]
             ],
@@ -106,14 +152,8 @@ class CategorySeeder extends Seeder
         foreach ($categories as $l1) {
             $l1_tmp = $l1;
             unset($l1_tmp['children']);
-            $l1_model = Category::create($l1_tmp);
-            foreach ($l1['children'] as $l2) {
-                $l2_tmp = $l2;
-                unset($l2_tmp['children']);
-                $l2_tmp['pid'] = $l1_model->id;
-                $l2_model = Category::create($l2_tmp);
-                $l2_model->children()->createMany($l2['children']);
-            }
+            $l2_model = Category::create($l1_tmp);
+            $l2_model->children()->createMany($l1['children']);
         }
 
         // 清除分类缓存

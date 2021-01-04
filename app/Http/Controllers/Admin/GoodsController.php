@@ -46,7 +46,7 @@ class GoodsController extends BaseController
         $catagory = Category::find($request->category_id);
         if (!$catagory) return $this->response->errorBadRequest('分类不存在');
         if ($catagory->status == 0) return $this->response->errorBadRequest('分类被禁用');
-        if ($catagory->level != 3) return $this->response->errorBadRequest('只能向3级分类添加商品');
+        if ($catagory->level != 2) return $this->response->errorBadRequest('只能向2级分类添加商品');
 
         $user_id = auth('api')->id();
 

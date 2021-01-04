@@ -43,6 +43,12 @@ $ php artisan vendor:publish --provider="Dingo\Api\Provider\LaravelServiceProvid
 $ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 ```
 
+发布CORS配置:
+
+```
+$ php artisan vendor:publish --tag="cors" 
+```
+
 发布权限相关配置:
 
 ```
@@ -67,12 +73,6 @@ DB_PASSWORD=password
 
 ```
 $ php artisan migrate --seed
-```
-
-生成商品假数据:
-
-```
-$ php artisan db:seed --class=GoodsSeeder
 ```
 
 > 不是必须, 根据需求是手动录入还是随机生成
