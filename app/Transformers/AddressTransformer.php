@@ -15,10 +15,14 @@ class AddressTransformer extends TransformerAbstract
         return [
             'id' => $address->id,
             'name' => $address->name,
-            'city_id' => $address->city_id,
-            'city_name' => city_name($address->city_id),
+            'province' => $address->province,
+            'city' => $address->city,
+            'county' => $address->county,
+//            'city_id' => $address->city_id,
+//            'city_name' => city_name($address->city_id),
             'address' => $address->address,
             'phone' => $address->phone,
+            'is_default' => $address->is_default,
             'created_at' => $address->created_at,
             'updated_at' => $address->updated_at,
         ];

@@ -17,7 +17,9 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->integer('user_id')->comment('用户id');
             $table->string('name')->comment('收货人');
-            $table->integer('city_id')->comment('地址city表中的id');
+            $table->string('province')->comment('省份');
+            $table->string('city')->comment('城市');
+            $table->string('county')->comment('县城');
             $table->string('address')->comment('详细地址');
             $table->string('phone')->comment('手机号');
             $table->tinyInteger('is_default')->default(0)->comment('是否是默认地址: 0不是默认 1是默认');

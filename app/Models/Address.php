@@ -13,10 +13,10 @@ class Address extends Model
     protected $guarded = [];
 
     // 追加中文地址
-    protected $appends = ['city_name'];
+//    protected $appends = ['city_name'];
 
-    public function getCityNameAttribute()
-    {
-        return city_name($this->city_id);
-    }
+//    public function getCityNameAttribute()
+//    {
+//        return city_name($this->city_id);
+//    }
 }

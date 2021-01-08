@@ -25,9 +25,22 @@ class AddressController extends BaseController
      */
     public function store(AddressRequest $request)
     {
-        $request->offsetSet('user_id', auth('api')->id());
-        Address::create($request->all());
-        return $this->response->created();
+        try {
+            DB::beginTransaction();
+
+            if ($request->is_default == 1) {
+                $this->setDefault();
+            }
+
+            $request->offsetSet('user_id', auth('api')->id());
+            Address::create($request->all());
+
+            DB::commit();
+            return $this->response->created();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
     }
 
     /**
@@ -48,8 +61,37 @@ class AddressController extends BaseController
      */
     public function update(AddressRequest $request, Address $address)
     {
-        $address->update($request->all());
-        return $this->response->noContent();
+        try {
+            DB::beginTransaction();
+
+            if ($request->is_default == 1) {
+                $this->setDefault();
+            }
+
+            $address->update($request->all());
+
+            DB::commit();
+            return $this->response->noContent();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
+    }
+
+    /**
+     * 添加和更新时的默认设置
+     */
+    public function setDefault()
+    {
+        // 先把所有的地址都设置为非默认
+        $default_address = Address::where('user_id', auth('api')->id())
+            ->where('is_default', 1)
+            ->first();
+
+        if (!empty($default_address)) {
+            $default_address->is_default = 0;
+            $default_address->save();
+        }
     }
 
     /**
