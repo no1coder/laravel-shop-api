@@ -50,7 +50,7 @@ class OrderController extends BaseController
         // 购物车数据
         $carts = Cart::where('user_id', auth('api')->id())
             ->where('is_checked', 1)
-            ->with('goods:id,cover,title')
+            ->with('goods:id,cover,title,price')
             ->get();
 
         // 返回数据
@@ -124,7 +124,7 @@ class OrderController extends BaseController
 
             DB::commit();
 
-            return $this->response->created();
+            return $this->response->item($order, new OrderTransformer());
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;

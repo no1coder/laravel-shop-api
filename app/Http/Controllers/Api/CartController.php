@@ -96,4 +96,19 @@ class CartController extends BaseController
         $cart->delete();
         return $this->response->noContent();
     }
+
+    /**
+     * 购物车选中和取消选中
+     */
+    public function checked(Request $request)
+    {
+        $request->validate([
+            'cart_ids' => 'required|array'
+        ], [
+            'cart_ids.required' => '购物车ID 不能为空',
+            'cart_ids.array' => '购物车ID 必须是数组',
+        ]);
+        dd($request->cart_ids);
+        return $this->response->noContent();
+    }
 }

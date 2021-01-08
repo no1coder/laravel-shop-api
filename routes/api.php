@@ -43,6 +43,8 @@ $api->version('v1', $params, function ($api) {
         /**
          * 购物车
          */
+        // 购物车选中
+        $api->patch('carts/checked', [\App\Http\Controllers\Api\CartController::class, 'checked']);
         // 购物车的资源路由
         $api->resource('carts', \App\Http\Controllers\Api\CartController::class, [
             'except' => ['show']
