@@ -108,7 +108,14 @@ class CartController extends BaseController
             'cart_ids.required' => '购物车ID 不能为空',
             'cart_ids.array' => '购物车ID 必须是数组',
         ]);
-        dd($request->cart_ids);
+
+        $cart_ids = $request->input('cart_ids');
+
+        // 循环更数据库
+        foreach ($cart_ids as $v) {
+            Cart::where('id', $v['id'])->update(['is_checked' => $v['is_checked']]);
+        }
+
         return $this->response->noContent();
     }
 }
