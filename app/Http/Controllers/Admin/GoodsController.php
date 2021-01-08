@@ -33,7 +33,7 @@ class GoodsController extends BaseController
             ->when($is_recommend !== false, function ($query) use ($is_recommend) {
                 $query->where('is_recommend', $is_recommend);
             })
-            ->paginate(2);
+            ->paginate(10);
         return $this->response->paginator($goods, new GoodTransformer());
     }
 

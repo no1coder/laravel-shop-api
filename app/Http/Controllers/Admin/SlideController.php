@@ -16,7 +16,7 @@ class SlideController extends BaseController
      */
     public function index()
     {
-        $slides = Slide::paginate(2);
+        $slides = Slide::paginate(10);
         return $this->response->paginator($slides, new SlideTransformer());
     }
 

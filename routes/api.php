@@ -85,5 +85,13 @@ $api->version('v1', $params, function ($api) {
         $api->patch('address/{address}/default', [\App\Http\Controllers\Api\AddressController::class, 'default']);
         // 地址相关的资源路由
         $api->resource('address', \App\Http\Controllers\Api\AddressController::class);
+
+        /**
+         * 收藏
+         */
+        // 收藏和取消收藏
+        $api->post('collects/goods/{goods}', [\App\Http\Controllers\Api\CollectController::class, 'collect']);
+        // 我的收藏
+        $api->get('collects', [\App\Http\Controllers\Api\CollectController::class, 'myCollects']);
     });
 });

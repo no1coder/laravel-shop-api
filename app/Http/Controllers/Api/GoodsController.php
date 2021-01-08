@@ -87,6 +87,7 @@ class GoodsController extends BaseController
             ->with(['comments.user' => function($query) {
                     $query->select('id', 'name', 'avatar');
                 }])
+            ->withCount('collects')
             ->first()
             ->append('pics_url');
 

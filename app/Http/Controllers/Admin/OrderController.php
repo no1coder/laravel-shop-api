@@ -30,7 +30,7 @@ class OrderController extends BaseController
             ->when($status, function ($query) use ($status) {
                 $query->where('status', $status);
             })
-            ->paginate();
+            ->paginate(10);
 
         return $this->response->paginator($orders, new OrderTransformer());
     }
@@ -50,11 +50,11 @@ class OrderController extends BaseController
     {
         // 验证提交的参数
         $request->validate([
-            'express_type' => 'required|in:SF,YT,YD',
+            'express_type' => 'required|in:SF,YTO,YD',
             'express_no' => 'required',
         ], [
             'express_type.required' => '快递类型 必填',
-            'express_type.in' => '快递类型 只能是:SF YT YD',
+            'express_type.in' => '快递类型 只能是:SF YTO YD',
             'express_no.required' => '快递单号 必填'
         ]);
 

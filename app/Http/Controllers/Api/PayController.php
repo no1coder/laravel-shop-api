@@ -34,7 +34,7 @@ class PayController extends BaseController
         if ($request->input('type') == 'aliyun') {
             $order = [
                 'out_trade_no' => $order->order_no,
-                'total_amount' => $order->amount / 100,
+                'total_amount' => $order->amount,
                 'subject' => $title
             ];
 
@@ -49,7 +49,7 @@ class PayController extends BaseController
         if ($request->input('type') == 'wechat') {
             $order = [
                 'out_trade_no' => $order->order_no,
-                'total_fee' => $order->amount,
+                'total_fee' => $order->amount * 100,
                 'body' => $title,
             ];
 

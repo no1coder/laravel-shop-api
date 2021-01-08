@@ -33,7 +33,7 @@ class OrderController extends BaseController
                     $query->where('title', 'like', "%{$title}%");
                 });
             })
-            ->paginate(3);
+            ->paginate(10);
         return $this->response->paginator($orders, new OrderTransformer());
     }
 

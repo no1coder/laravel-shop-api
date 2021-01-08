@@ -68,4 +68,12 @@ class Good extends Model
     {
         return $this->hasMany(Comment::class, 'goods_id', 'id');
     }
+
+    /**
+     * 商品所有的收藏
+     */
+    public function collects()
+    {
+        return $this->hasMany(Collect::class, 'goods_id', 'id');
+    }
 }

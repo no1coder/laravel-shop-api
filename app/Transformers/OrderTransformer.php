@@ -23,11 +23,11 @@ class OrderTransformer extends TransformerAbstract
             'address_id' => $order->address_id,
             'express_type' => $order->express_type,
             'express_no' => $order->express_no,
-            'pay_time' => $order->pay_time,
+            'pay_time' => empty($order->pay_time) ? $order->pay_time : $order->pay_time->toDateTimeString(),
             'pay_type' => $order->pay_type,
             'trade_no' => $order->trade_no,
-            'created_at' => $order->created_at,
-            'updated_at' => $order->updated_at,
+            'created_at' => empty($order->created_at) ? $order->created_at : $order->created_at->toDateTimeString(),
+            'updated_at' => empty($order->updated_at) ? $order->updated_at : $order->updated_at->toDateTimeString(),
         ];
     }
 

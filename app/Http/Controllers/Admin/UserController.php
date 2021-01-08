@@ -23,7 +23,7 @@ class UserController extends BaseController
             ->when($email, function ($query) use ($email) {
                 $query->where('email', $email);
             })
-            ->paginate(2);
+            ->paginate(10);
         return $this->response->paginator($users, new UserTransformer());
     }
 
