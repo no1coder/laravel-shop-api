@@ -6,6 +6,8 @@ use App\Http\Controllers\BaseController;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Yansongda\LaravelPay\Facades\Pay;
 
 class PayController extends BaseController
@@ -36,7 +38,12 @@ class PayController extends BaseController
                 'subject' => $title
             ];
 
-            return Pay::alipay()->scan($order);
+            $result = Pay::alipay()->scan($order);
+
+            // 生成二维码图片
+            $result['qr_code_url'] = $this->createQrCode($result['qr_code']);
+
+            return $result;
         }
 
         if ($request->input('type') == 'wechat') {
@@ -48,6 +55,25 @@ class PayController extends BaseController
 
             return Pay::wechat()->scan($order);
         }
+    }
+
+    /**
+     * 生成二维码图片
+     */
+    public function createQrCode($url)
+    {
+        // 生成二维码图片
+        $image = QrCode::format('png')->size(200)->margin(2)->generate($url);
+        $key = 'qr_code/' . md5('pay_qr_code_' . auth('api')->id()) . '.png';
+        // 如果有同名的二维码, 先删掉
+        $exists = Storage::disk('public')->exists($key);
+        if ($exists) Storage::disk('public')->delete($key);
+
+        // 存储到本地
+        Storage::disk('public')->put($key, $image);
+
+        // 返回图片地址
+        return Storage::disk('public')->url($key);
     }
 
     /**
@@ -80,6 +106,11 @@ class PayController extends BaseController
                     'trade_no' => $data->trade_no
                 ]);
             }
+
+            // 删除支付二维码
+            $key = 'qr_code/' . md5('pay_qr_code_' . $order->user_id) . '.png';
+            $exists = Storage::disk('public')->exists($key);
+            if ($exists) Storage::disk('public')->delete($key);
 
             Log::debug('Alipay notify', $data->all());
         } catch (\Exception $e) {

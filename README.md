@@ -77,6 +77,12 @@ $ php artisan migrate --seed
 
 > 不是必须, 根据需求是手动录入还是随机生成
 
+创建资源软连接:
+
+```
+$ php artisan storage:link
+```
+
 ## 配置
 
 如果需要完整的体验项目, 您需要进行一些额外的配置
