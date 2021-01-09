@@ -114,10 +114,10 @@ class CartController extends BaseController
         $uid = auth('api')->id();
 
         // 所有先不选中
-        Cart::where('user_id', $uid)->update('is_checked', 0);
+        Cart::where('user_id', $uid)->update(['is_checked' => 0]);
 
         // 在选中提交的
-        Cart::where('user_id', $uid)->whereIn('id', array_values($cart_ids))->update('is_checked', 1);
+        Cart::where('user_id', $uid)->whereIn('id', array_values($cart_ids))->update(['is_checked' => 1]);
 
         return $this->response->noContent();
     }
