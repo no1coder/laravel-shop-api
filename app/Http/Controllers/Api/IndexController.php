@@ -45,6 +45,7 @@ class IndexController extends BaseController
             ->when($new, function ($query) use ($new) {
                 $query->orderBy('created_at', 'desc');
             })
+            ->withCount('collects')
             ->simplePaginate(10)
             ->appends([
                 'recommend' => $recommend,

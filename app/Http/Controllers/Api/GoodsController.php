@@ -44,6 +44,7 @@ class GoodsController extends BaseController
                 $query->orderBy('price', 'desc');
             })
             ->withCount('comments')
+            ->withCount('collects')
             ->when($comments_count == 1, function ($query) use ($comments_count) {
                 $query->orderBy('comments_count', 'desc');
             })
@@ -63,6 +64,7 @@ class GoodsController extends BaseController
             ->where('is_on', 1)
             ->where('is_recommend', 1)
             ->withCount('comments')
+            ->withCount('collects')
             ->inRandomOrder()
             ->take(10)
             ->get();
@@ -89,12 +91,13 @@ class GoodsController extends BaseController
                 }])
             ->withCount('collects')
             ->first()
-            ->append('pics_url');
+            ->append('pics_url', 'is_collect');
 
         // 相似商品
         $like_goods = Good::where('is_on', 1)
             ->select('id', 'title', 'price', 'cover', 'sales')
             ->where('category_id', $goods->category_id)
+            ->withCount('collects')
             ->inRandomOrder()
             ->take(10)
             ->get();

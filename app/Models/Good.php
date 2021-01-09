@@ -46,6 +46,18 @@ class Good extends Model
     }
 
     /**
+     * is_collect
+     */
+    public function getIsCollectAttribute()
+    {
+        $uid = auth('api')->id();
+        if (empty($uid)) return 0;
+        $checkCollect = Collect::where('user_id', $uid)->where('goods_id', $this->id)->first();
+        if (empty($checkCollect)) return 0;
+        return 1;
+    }
+
+    /**
      * 商品所属的分类
      */
     public function category()
