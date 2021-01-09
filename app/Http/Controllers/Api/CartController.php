@@ -103,13 +103,13 @@ class CartController extends BaseController
     public function checked(Request $request)
     {
         $request->validate([
-            'cart_ids' => 'required|array'
+            'cart_ids' => 'array'
         ], [
             'cart_ids.required' => '购物车ID 不能为空',
             'cart_ids.array' => '购物车ID 必须是数组',
         ]);
 
-        $cart_ids = $request->input('cart_ids');
+        $cart_ids = $request->input('cart_ids', []);
 
         $uid = auth('api')->id();
 
