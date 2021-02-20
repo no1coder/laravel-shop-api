@@ -90,8 +90,11 @@ class GoodsController extends BaseController
                     $query->select('id', 'name', 'avatar');
                 }])
             ->withCount('collects')
-            ->first()
-            ->append('pics_url', 'is_collect');
+            ->first();
+
+        if (!$goods) return $this->response->errorNotFound('未查询到数据');
+
+        $goods->append('pics_url', 'is_collect');
 
         // 相似商品
         $like_goods = Good::where('is_on', 1)
