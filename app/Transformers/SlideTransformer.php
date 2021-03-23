@@ -19,8 +19,8 @@ class SlideTransformer extends TransformerAbstract
             'img_url' => oss_url($slide->img),
             'seq' => $slide->seq,
             'status' => $slide->status,
-            'created_at' => $slide->created_at,
-            'updated_at' => $slide->updated_at,
+            'created_at' => empty($slide->created_at) ? $slide->created_at : $slide->created_at->toDateTimeString(),
+            'updated_at' => empty($slide->updated_at) ? $slide->updated_at : $slide->updated_at->toDateTimeString(),
         ];
     }
 }

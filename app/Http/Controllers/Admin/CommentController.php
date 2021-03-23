@@ -27,7 +27,8 @@ class CommentController extends BaseController
                 $goods_ids = Good::where('title', 'like', "%{$goods_title}%")->pluck('id');
                 $query->whereIn('goods_id', $goods_ids);
             })
-            ->paginate(10);
+            ->orderBy('updated_at', 'desc')
+            ->paginate($request->pageSize ?? 10);
         return $this->response->paginator($comments, new CommentTransformer());
     }
 

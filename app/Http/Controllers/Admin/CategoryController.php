@@ -47,6 +47,8 @@ class CategoryController extends BaseController
      */
     public function update(Request $request, Category $category)
     {
+        if ($category->id < 42) return $this->response->errorBadRequest('系统数据禁止编辑, 请自行创建数据');
+
         $updateData = $this->checkInput($request);
         if (!is_array($updateData)) return $updateData;
 
@@ -94,6 +96,8 @@ class CategoryController extends BaseController
      */
     public function status(Category $category)
     {
+        if ($category->id < 42) return $this->response->errorBadRequest('系统数据禁止编辑, 请自行创建数据');
+
         $category->status = $category->status == 1 ? 0 : 1;
         $category->save();
 

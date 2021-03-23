@@ -38,8 +38,8 @@ class GoodTransformer extends TransformerAbstract
             'details' => $good->details,
             'is_on' => $good->is_on,
             'is_recommend' => $good->is_recommend,
-            'created_at' => $good->created_at,
-            'updated_at' => $good->updated_at,
+            'created_at' => empty($good->created_at) ? $good->created_at : $good->created_at->toDateTimeString(),
+            'updated_at' => empty($good->updated_at) ? $good->updated_at : $good->updated_at->toDateTimeString(),
         ];
     }
 

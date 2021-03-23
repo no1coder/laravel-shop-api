@@ -17,10 +17,10 @@ class UserTransformer extends TransformerAbstract
             'email' => $user->email,
             'phone' => $user->phohe,
             'avatar' => $user->avatar,
-            'avatar_url' => oss_url($user->avatar),
+            'avatar_url' => $user->avatar ? oss_url($user->avatar) : asset('imgs/avatar.png'),
             'is_locked' => $user->is_locked,
-            'created_at' => $user->created_at,
-            'updated_at' => $user->updated_at,
+            'created_at' => empty($user->created_at) ? $user->created_at : $user->created_at->toDateTimeString(),
+            'updated_at' => empty($user->updated_at) ? $user->updated_at : $user->updated_at->toDateTimeString(),
         ];
     }
 }

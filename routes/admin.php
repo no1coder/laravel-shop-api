@@ -14,17 +14,23 @@ $params = [
 
 $api->version('v1', $params, function ($api) {
     $api->group(['prefix' => 'admin'], function ($api){
-
         // 需要登录的路由
         $api->group(['middleware' => ['api.auth', 'check.permission']], function ($api) {
             /**
+             * 首页统计数据
+             */
+            $api->get('index', [\App\Http\Controllers\Admin\IndexController::class, 'index'])->name('admin.index');
+
+            /**
              * 用户管理
              */
+            // 当前登录用户详情
+            $api->get('user', [\App\Http\Controllers\Admin\UserController::class, 'userInfo'])->name('user.info');
             // 禁用用户/启用用户
             $api->patch('users/{user}/lock', [\App\Http\Controllers\Admin\UserController::class, 'lock'])->name('users.lock');
             // 用户管理资源路由
             $api->resource('users', \App\Http\Controllers\Admin\UserController::class, [
-                'only' => ['index', 'show']
+                'only' => ['index', 'show', 'store', 'update']
             ]);
 
             /**

@@ -13,6 +13,7 @@ class CategoryTransformer extends TransformerAbstract
     {
         return [
             'id' => $category->id,
+            'pid' => $category->pid,
             'name' => $category->name,
         ];
     }

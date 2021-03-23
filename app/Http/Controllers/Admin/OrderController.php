@@ -30,7 +30,8 @@ class OrderController extends BaseController
             ->when($status, function ($query) use ($status) {
                 $query->where('status', $status);
             })
-            ->paginate(10);
+            ->orderBy('updated_at', 'desc')
+            ->paginate($request->pageSize ?? 10);
 
         return $this->response->paginator($orders, new OrderTransformer());
     }

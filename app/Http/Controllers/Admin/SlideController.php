@@ -16,7 +16,8 @@ class SlideController extends BaseController
      */
     public function index()
     {
-        $slides = Slide::paginate(10);
+        $slides = Slide::orderBy('updated_at', 'desc')
+            ->paginate($request->pageSize ?? 10);
         return $this->response->paginator($slides, new SlideTransformer());
     }
 
@@ -48,6 +49,8 @@ class SlideController extends BaseController
      */
     public function update(SlideRequest $request, Slide $slide)
     {
+        if ($slide->id < 6) $this->response->errorBadRequest('系统数据禁止编辑, 请自行创建数据');
+
         $slide->update($request->all());
         return $this->response->noContent();
     }
@@ -57,6 +60,7 @@ class SlideController extends BaseController
      */
     public function destroy(Slide $slide)
     {
+        if ($slide->id < 6) $this->response->errorBadRequest('系统数据禁止编辑, 请自行创建数据');
         $slide->delete();
         return $this->response->noContent();
     }
@@ -76,6 +80,8 @@ class SlideController extends BaseController
      */
     public function status(Slide $slide)
     {
+        if ($slide->id < 6) $this->response->errorBadRequest('系统数据禁止编辑, 请自行创建数据');
+
         $slide->status = $slide->status == 1 ? 0 : 1;
         $slide->save();
         return $this->response->noContent();

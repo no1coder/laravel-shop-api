@@ -21,7 +21,7 @@ class GoodsRequest extends BaseRequest
             'price' => 'required|min:0',
             'stock' => 'required|min:0',
             'cover' => 'required',
-            'pics' => 'required|array',
+            'pics' => 'array',
             'details' => 'required',
         ];
     }

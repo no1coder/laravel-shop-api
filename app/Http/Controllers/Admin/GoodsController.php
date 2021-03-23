@@ -33,7 +33,8 @@ class GoodsController extends BaseController
             ->when($is_recommend !== false, function ($query) use ($is_recommend) {
                 $query->where('is_recommend', $is_recommend);
             })
-            ->paginate(10);
+            ->orderBy('updated_at', 'desc')
+            ->paginate($request->pageSize ?? 10);
         return $this->response->paginator($goods, new GoodTransformer());
     }
 
@@ -74,11 +75,13 @@ class GoodsController extends BaseController
      */
     public function update(GoodsRequest $request, Good $good)
     {
+        if ($good->id < 237) return $this->response->errorBadRequest('系统数据禁止编辑, 请自行创建数据');
+
         // 对分类进行一下检查, 只能使用3级分类, 并且分类不能被禁用
         $catagory = Category::find($request->category_id);
         if (!$catagory) return $this->response->errorBadRequest('分类不存在');
-        if ($catagory->status == 0) return $this->response->errorBadRequest('分类被禁用');
-        if ($catagory->level != 3) return $this->response->errorBadRequest('只能向3级分类添加商品');
+//        if ($catagory->status == 0) return $this->response->errorBadRequest('分类被禁用');
+        if ($catagory->level != 2) return $this->response->errorBadRequest('只能向2级分类添加商品');
 
         $good->update($request->all());
         return $this->response->noContent();
