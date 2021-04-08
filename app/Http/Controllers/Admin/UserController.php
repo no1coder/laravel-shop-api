@@ -36,7 +36,8 @@ class UserController extends BaseController
                 $query->where('phone', $phone);
             })
             ->orderBy('updated_at', 'desc')
-            ->paginate(10);
+            ->paginate($request->query('pageSize', 10), ['*'], 'current');
+
         return $this->response->paginator($users, new UserTransformer());
     }
 

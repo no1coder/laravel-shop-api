@@ -34,7 +34,8 @@ class GoodsController extends BaseController
                 $query->where('is_recommend', $is_recommend);
             })
             ->orderBy('updated_at', 'desc')
-            ->paginate($request->pageSize ?? 10);
+            ->paginate($request->query('pageSize', 10), ['*'], 'current');
+
         return $this->response->paginator($goods, new GoodTransformer());
     }
 

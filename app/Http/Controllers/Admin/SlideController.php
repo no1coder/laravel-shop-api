@@ -14,10 +14,11 @@ class SlideController extends BaseController
     /**
      * 列表
      */
-    public function index()
+    public function index(Request $request)
     {
         $slides = Slide::orderBy('updated_at', 'desc')
-            ->paginate($request->pageSize ?? 10);
+            ->paginate($request->query('pageSize', 10), ['*'], 'current');
+
         return $this->response->paginator($slides, new SlideTransformer());
     }
 

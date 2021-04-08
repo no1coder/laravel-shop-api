@@ -28,7 +28,8 @@ class CommentController extends BaseController
                 $query->whereIn('goods_id', $goods_ids);
             })
             ->orderBy('updated_at', 'desc')
-            ->paginate($request->pageSize ?? 10);
+            ->paginate($request->query('pageSize', 10), ['*'], 'current');
+
         return $this->response->paginator($comments, new CommentTransformer());
     }
 
