@@ -29,6 +29,11 @@ class PayController extends BaseController
             return $this->response->errorBadRequest('订单状态异常, 请重新下单');
         }
 
+        // 如果订单中没有商品, 不让提交
+        if ($order->goods->isEmpty()) {
+            return $this->response->errorBadRequest('订单无商品, 请重新下单');
+        }
+
         $title = $order->goods()->first()->title . ' 等 ' . $order->goods()->count() . ' 件商品';
 
         if ($request->input('type') == 'aliyun') {
@@ -47,6 +52,8 @@ class PayController extends BaseController
         }
 
         if ($request->input('type') == 'wechat') {
+            return $this->response->errorBadRequest('微信支付未提供沙箱环境, 暂不支持测试, 请使用支付宝完成支付!');
+
             $order = [
                 'out_trade_no' => $order->order_no,
                 'total_fee' => $order->amount * 100,
@@ -98,11 +105,11 @@ class PayController extends BaseController
             // 4、验证app_id是否为该商户本身。
             // 5、其它业务逻辑情况
 
+            // 查询订单
+            $order = Order::where('order_no', $data->out_trade_no)->first();
+
             // 判断支付状态
             if ($data->trade_status == 'TRADE_SUCCESS' || $data->trade_status == 'TRADE_FINISHED') {
-                // 查询订单
-                $order = Order::where('order_no', $data->out_trade_no)->first();
-
                 // 更新订单数据
                 $order->update([
                     'status' => 2,

@@ -106,7 +106,7 @@ class AddressController extends BaseController
     /**
      * 是否设置为默认地址
      */
-    public function default(Address $address)
+    public function defaultAddress(Address $address)
     {
         if ($address->is_default == 1) {
             return $this->response->errorBadRequest('当前地址已经是默认地址, 不能重复设置');
@@ -116,14 +116,7 @@ class AddressController extends BaseController
         try {
             DB::beginTransaction();
             // 先把所有的地址都设置为非默认
-            $default_address = Address::where('user_id', auth('api')->id())
-                ->where('is_default', 1)
-                ->first();
-
-            if (!empty($default_address)) {
-                $default_address->is_default = 0;
-                $default_address->save();
-            }
+            $this->setDefault();
 
             // 再设置为当前的这个为默认
             $address->is_default = 1;

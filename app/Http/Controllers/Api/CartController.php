@@ -32,6 +32,9 @@ class CartController extends BaseController
                 // 数量不能超过商品的库存
                 function($attribute, $value, $fail) use ($request){
                     $goods = Good::find($request->goods_id);
+                    if (empty($goods)) {
+                        $fail("商品 不存在");
+                    }
                     if ($value > $goods->stock) {
                         $fail("数量 不能操作库存");
                     }

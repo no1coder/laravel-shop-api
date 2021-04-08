@@ -82,7 +82,7 @@ $api->version('v1', $params, function ($api) {
         // 省市县数据
         $api->get('city', [\App\Http\Controllers\Api\CityController::class, 'index']);
         // 设置为默认地址
-        $api->patch('address/{address}/default', [\App\Http\Controllers\Api\AddressController::class, 'default']);
+        $api->patch('address/{address}/default', [\App\Http\Controllers\Api\AddressController::class, 'defaultAddress']);
         // 地址相关的资源路由
         $api->resource('address', \App\Http\Controllers\Api\AddressController::class);
 
