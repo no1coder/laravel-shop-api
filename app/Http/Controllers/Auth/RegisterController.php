@@ -17,6 +17,8 @@ class RegisterController extends BaseController
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
+        if ($request->input('openid')) $user->openid = $request->input('openid');
+        if ($request->input('avatar')) $user->avatar = $request->input('avatar');
         $user->save();
         return $this->response->created();
     }

@@ -15,6 +15,13 @@ $api->version('v1', ['middleware' => 'api.throttle', 'limit' => 60, 'expires' =>
         // 执行密码重置
         $api->post('reset/password/email', [\App\Http\Controllers\Auth\PasswordResetController::class, 'resetPasswordByEmail']);
 
+        /**
+         * 微信相关
+         */
+        $api->group(['middleware' => 'serializer:array'], function ($api) {
+            $api->post('wx/code', [\App\Http\Controllers\Auth\WxController::class, 'code']);
+        });
+
         // 需要登录的路由
         $api->group(['middleware' => 'api.auth'], function ($api) {
             // 退出登录
