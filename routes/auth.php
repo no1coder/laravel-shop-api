@@ -19,11 +19,16 @@ $api->version('v1', ['middleware' => 'api.throttle', 'limit' => 60, 'expires' =>
          * 微信相关
          */
         $api->group(['middleware' => 'serializer:array'], function ($api) {
+            // 通过code换取用户openid
             $api->post('wx/code', [\App\Http\Controllers\Auth\WxController::class, 'code']);
         });
 
+
         // 需要登录的路由
         $api->group(['middleware' => 'api.auth'], function ($api) {
+            // 绑定小程序或者解绑
+            $api->post('wx/bind', [\App\Http\Controllers\Auth\WxController::class, 'bind']);
+
             // 退出登录
             $api->post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
             // 刷新token

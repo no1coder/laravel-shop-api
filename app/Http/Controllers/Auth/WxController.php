@@ -63,4 +63,35 @@ class WxController extends BaseController
             return $this->response->errorBadRequest($resData['errmsg']);
         }
     }
+
+    /**
+     * 绑定和取消绑定openid
+     */
+    public function bind(Request $request)
+    {
+        // 验证参数
+        $request->validate([
+            'type' => 'required|in:bind,unbind',
+            'openid' => 'required',
+        ], [
+            'type.in' => 'type 必须是 bind 或者 unbind',
+            'openid.required' => 'openid 不能为空',
+        ]);
+
+        $user = auth('api')->user();
+
+        if ($request->type == 'bind') {
+            // 查询openid是否为空
+            if (!empty($user->openid)) return $this->response->errorBadRequest('当前账号已绑定, 请先解绑');
+            $user->openid = $request->openid;
+            $user->save();
+            return $this->response->noContent();
+        } else {
+            if (empty($user->openid)) return $this->response->errorBadRequest('当前账号未绑定, 不能解绑');
+            if ($user->openid != $request->openid) return $this->response->errorBadRequest('已绑定微信和当前微信微信不一致, 不能解绑');
+            $user->openid = null;
+            $user->save();
+            return $this->response->noContent();
+        }
+    }
 }
