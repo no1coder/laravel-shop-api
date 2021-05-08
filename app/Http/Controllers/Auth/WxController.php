@@ -44,12 +44,18 @@ class WxController extends BaseController
         if (!isset($resData['errcode'])) {
             $user = User::where('openid', $resData['openid'])->first();
             if (empty($user)) {
-                return $this->response->errorNotFound('用户不存在');
+                return response()->json([
+                    'openid' => $resData['openid'],
+                    'access_token' => '',
+                    'user' => ''
+                ]);
+//                return $this->response->errorNotFound('用户不存在');
             }
 
             $access_token = auth('api')->login($user);
 
             return response()->json([
+                'openid' => $resData['openid'],
                 'access_token' => $access_token,
                 'user' => $this->response->item($user, new UserTransformer())->original
             ]);
