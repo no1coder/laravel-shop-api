@@ -17,6 +17,7 @@ class UserTransformer extends TransformerAbstract
             'email' => $user->email,
             'phone' => $user->phohe,
             'avatar' => $user->avatar,
+            'openid' => $user->openid,
             'avatar_url' => $user->avatar ? oss_url($user->avatar) : asset('imgs/avatar.png'),
             'is_locked' => $user->is_locked,
             'created_at' => empty($user->created_at) ? $user->created_at : $user->created_at->toDateTimeString(),
