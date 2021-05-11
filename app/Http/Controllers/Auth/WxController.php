@@ -57,7 +57,18 @@ class WxController extends BaseController
             return response()->json([
                 'openid' => $resData['openid'],
                 'access_token' => $access_token,
-                'user' => $this->response->item($user, new UserTransformer())->original
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'phone' => $user->phohe,
+                    'avatar' => $user->avatar,
+                    'openid' => $user->openid,
+                    'avatar_url' => $user->avatar ? oss_url($user->avatar) : asset('imgs/avatar.png'),
+                    'is_locked' => $user->is_locked,
+                    'created_at' => empty($user->created_at) ? $user->created_at : $user->created_at->toDateTimeString(),
+                    'updated_at' => empty($user->updated_at) ? $user->updated_at : $user->updated_at->toDateTimeString(),
+                ]
             ]);
         } else {
             return $this->response->errorBadRequest($resData['errmsg']);
