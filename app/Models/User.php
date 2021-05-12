@@ -78,6 +78,6 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getAvatarUrlAttribute()
     {
-        return oss_url($this->avatar);
+        return $this->avatar ? oss_url($this->avatar) : asset('imgs/avatar.png');
     }
 }
