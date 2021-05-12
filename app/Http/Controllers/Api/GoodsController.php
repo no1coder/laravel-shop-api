@@ -92,6 +92,12 @@ class GoodsController extends BaseController
             ->withCount('collects')
             ->first();
 
+       foreach ($goods->comments as $k => $c) {
+           $tmp = $c->getAttributes();
+           $tmp['user'] = $c->user;
+           $goods['comments'][$k] = $tmp;
+       }
+
         if (!$goods) return $this->response->errorNotFound('未查询到数据');
 
         $goods->append('pics_url', 'is_collect');
