@@ -67,6 +67,8 @@ class UserController extends BaseController
             'email' => 'required|email',
         ]);
 
+        if ($user->id == 1 || $user->id == 2) return $this->response->errorBadRequest('禁止操作系统数据');
+
         $user->update($request->all());
 
         return $this->response->noContent();
@@ -85,6 +87,8 @@ class UserController extends BaseController
      */
     public function lock(User $user)
     {
+        if ($user->id == 1 || $user->id == 2) return $this->response->errorBadRequest('禁止操作系统数据');
+
         $user->is_locked = $user->is_locked == 0 ? 1 : 0;
         $user->save();
         return $this->response->noContent();

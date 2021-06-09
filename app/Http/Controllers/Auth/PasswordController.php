@@ -25,6 +25,8 @@ class PasswordController extends BaseController
         $old_password = $request->input('old_password');
         $user = auth('api')->user();
 
+        if ($user->id == 1 || $user->id == 2) return $this->response->errorBadRequest('禁止操作系统数据');
+
         // 验证旧密码是否正确
         if (!password_verify($old_password, $user->password)) {
             return $this->response->errorBadRequest('旧密码不正确');
