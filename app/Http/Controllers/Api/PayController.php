@@ -46,7 +46,7 @@ class PayController extends BaseController
             $result = Pay::alipay()->scan($order);
 
             // 生成二维码图片
-            $result['qr_code_url'] = $this->createQrCode($result['qr_code']);
+            $result['qr_code_url'] = $this->createQrCode($result['qr_code']) . '?time=' . time();
 
             return $result;
         }
@@ -63,7 +63,7 @@ class PayController extends BaseController
             $result = Pay::wechat()->scan($order);
 
             // 生成二维码图片
-            $result['qr_code_url'] = $this->createQrCode($result['code_url']);
+            $result['qr_code_url'] = $this->createQrCode($result['code_url']) . '?time=' . time();
 
             return $result;
         }
