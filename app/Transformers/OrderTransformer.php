@@ -10,7 +10,7 @@ use League\Fractal\TransformerAbstract;
 
 class OrderTransformer extends TransformerAbstract
 {
-    protected $availableIncludes = ['user', 'orderDetails', 'goods'];
+    protected $availableIncludes = ['user', 'orderDetails', 'goods', 'address'];
 
     public function transform(Order $order)
     {
@@ -53,5 +53,13 @@ class OrderTransformer extends TransformerAbstract
     public function includeGoods(Order $order)
     {
         return $this->collection($order->goods, new GoodTransformer());
+    }
+
+    /**
+     * 额外的地址数据
+     */
+    public function includeAddress(Order $order)
+    {
+        return $this->item($order->orderAddress, new AddressTransformer());
     }
 }

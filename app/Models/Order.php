@@ -29,6 +29,14 @@ class Order extends Model
     }
 
     /**
+     * 订单所关联的地址
+     */
+    public function orderAddress()
+    {
+        return $this->hasOne(Address::class, 'id', 'address_id');
+    }
+
+    /**
      * 订单远程一对多, 关联的商品
      */
     public function goods()
