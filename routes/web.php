@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+   // 重定向到 index.html
+   return redirect('/index.html');
+});

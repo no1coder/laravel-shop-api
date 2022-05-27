@@ -1,222 +1,1764 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="keywords"
-      content="antd,umi,umijs,ant design,脚手架,布局, Ant Design,项目,Pro,admin,控制台,主页,开箱即用,中后台,解决方案,组件库"
-    />
-    <meta
-      name="description"
-      content="
-    An out-of-box UI solution for enterprise applications as a React boilerplate."
-    />
-    <meta
-      name="description"
-      content="
-      开箱即用的中台前端/设计解决方案。"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <title>Ant Design Pro</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/umi.1b023dd5.css" />
-    <script>
-      window.routerBase = "/";
-    </script>
-    <script>
-      //! umi version: 3.4.7
-    </script>
-  </head>
-  <body>
-    <noscript>Out-of-the-box mid-stage front/design solution!</noscript>
-    <div id="root">
-      <style>
-        html,
-        body,
-        #root {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-        #root {
-          background-image: url("/home_bg.png");
-          background-repeat: no-repeat;
-          background-size: 100% auto;
-        }
-        .page-loading-warp {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 98px;
-        }
-        .ant-spin {
-          position: absolute;
-          display: none;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-          color: rgba(0, 0, 0, 0.65);
-          color: #1890ff;
-          font-size: 14px;
-          font-variant: tabular-nums;
-          line-height: 1.5;
-          text-align: center;
-          list-style: none;
-          opacity: 0;
-          -webkit-transition: -webkit-transform 0.3s
-            cubic-bezier(0.78, 0.14, 0.15, 0.86);
-          transition: -webkit-transform 0.3s
-            cubic-bezier(0.78, 0.14, 0.15, 0.86);
-          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
-            -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-          -webkit-font-feature-settings: "tnum";
-          font-feature-settings: "tnum";
-        }
+<head>
+<title>EWSHOP标准API，仅供学习使用#学而时习之</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="image/favicon.png" type="image/gif" sizes="16x16">
+<link rel="stylesheet" type="text/css" href="css/vendor.bundle.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body data-spy="scroll" data-target="#navbar" data-offset="70">
 
-        .ant-spin-spinning {
-          position: static;
-          display: inline-block;
-          opacity: 1;
-        }
+<!-- Preloader -->
+<div id="preloader">
+	<div id="status">&nbsp;</div>
+</div>
+<!--  -->
 
-        .ant-spin-dot {
-          position: relative;
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          font-size: 20px;
-        }
+<!-- header -->
+<header>
+	<!-- navbar -->
+	<nav id="navbar" class="navbar navbar-custom navbar-fixed-top" data-spy="affix" data-offset-top="70">
+		<div class="container">
+			<div class="row">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<i class="fa fa-bars"></i>
+					</button>
+					<a class="navbar-brand page-scroll logo-light" href="index.html"><img alt="" src="image/logo.png"></a>
+					<a class="navbar-brand page-scroll logo-clr" href="index.html"><img alt="" src="image/logo-clr.png"></a>
+				</div>
 
-        .ant-spin-dot-item {
-          position: absolute;
-          display: block;
-          width: 9px;
-          height: 9px;
-          background-color: #1890ff;
-          border-radius: 100%;
-          -webkit-transform: scale(0.75);
-          -ms-transform: scale(0.75);
-          transform: scale(0.75);
-          -webkit-transform-origin: 50% 50%;
-          -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-          opacity: 0.3;
-          -webkit-animation: antspinmove 1s infinite linear alternate;
-          animation: antSpinMove 1s infinite linear alternate;
-        }
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div class="right-nav text-right">
+						<ul class="nav navbar-nav menu">
+							<li>
+								<a href="#home">首页</a>
+							</li>
+							<li>
+								<a href="#feature">产品优势</a>
+							</li>
+							<li>
+								<a href="#overview">配套项目</a>
+							</li>
+							<li>
+								<a href="#pricing">成长礼包</a>
+							</li>
+							<li>
+								<a href="#team">项目导师</a>
+							</li>
+							<li>
+								<a href="#blog">项目说明</a>
+							</li>
+						</ul>
+						<div class="nav-btn">
+							<a href="https://www.lmonkey.com/vip" target="_blank" class="btn grdnt-purple">申请特权</a>
+						</div>
+					</div>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+		</div>
+	</nav>
+	<!-- End navbar -->
 
-        .ant-spin-dot-item:nth-child(1) {
-          top: 0;
-          left: 0;
-        }
+	<!-- banner -->
+	<div id="home" class="hero grdnt-purple bg-animate style-wave bg-trans-1">
+		<div class="banner">
+			<div class="container">
+				<div class="row hero-content">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="intro-text light">
+								<h2>专为学习提供的标准API</h2>
+								<div class="spce"></div>
+								<p class="large">帮助正在学习前端的小伙伴， 提供整套的教学版商城API，解决前后端分离项目的完整业务流程，为Web全端开发提供后端服务。 </p>
+								<div class="btn-holder">
+									<a class="btn btn-white" href="">
+									<i class="fa ti-plug" aria-hidden="true"></i><span>API帮助手册</span></a>
+									<a class="btn btn-border" href="">
+										<i class="fa ti-bolt" aria-hidden="true"></i><span>项目演示</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="img-pre col-md-offset-1 col-md-5 col-sm-6">
+							<div class="slide-side text-center">
+								<img class="phone"  alt="" src="image/phone.png">
+								<div class="owl-carousel nplr app-slide-auto">
+									<div>
+										<img alt="" src="image/screen.jpg">
+									</div>
+									<div>
+										<img alt="" src="image/screen2.jpg">
+									</div>
+									<div>
+										<img alt="" src="image/screen3.jpg">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<!-- End Banner -->
+</header>
+<!-- End header -->
 
-        .ant-spin-dot-item:nth-child(2) {
-          top: 0;
-          right: 0;
-          -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-        }
+<!--Feat  -->
+<section class="wow animated fadeIn sec-pad-sm pb-0" data-wow-delay=".3s">
+	<div class="container">
+		<div class="row res-center-sm">
+			<div class="right-dir-col row">
+				<div class="col-md-3 col-sm-6 res-margin">
+					<div class="icon icon-bg-md grdnt-purple">
+						<span class="ti-wallet"></span>
+					</div>
+					<div class="text">
+						<h6>API公用版永久免费</h6>
+						<p>不断迭代升级，支持10万+的前端项目同时接入</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 res-margin">
+					<div class="icon icon-bg-md grdnt-purple">
+						<span class="ti-gallery"></span>
+					</div>
+					<div class="text">
+						<h6>配置6个标准前端项目应用</h6>
+						<p>PC端， 小程序， 移动端， APP， 管理平台（2种实现）</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 res-margin">
+					<div class="icon icon-bg-md grdnt-purple">
+						<span class="ti-mobile"></span>
+					</div>
+					<div class="text">
+						<h6>配套前端项目全套视频教程</h6>
+						<p>覆盖前端全部主流技术，6个项目全套开发过程</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="icon icon-bg-md grdnt-purple">
+						<span class="ti-heart"></span>
+					</div>
+					<div class="text">
+						<h6>私人定制服务</h6>
+						<p>可为学员项目定制私有的API，独享服务器空间</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--  -->
 
-        .ant-spin-dot-item:nth-child(3) {
-          right: 0;
-          bottom: 0;
-          -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-        }
+<!-- Feature -->
+<section id="feature" class="sec-pad-lg bg-animate">
+	<div class="container">
+		<div class="row">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">帮你解决的问题</h3>
+				<p class="large">不仅为你提供一个免费的标准API， 更为你提供了一整套的前端教学实战服务</p>
+			</div>
+			<div class="items">
+				<div class="text-center owl-carousel col-feat feat-slide grad-prple shad-item col-content hover">
+					<div>
+						<div class="icon-md">
+							<span class="clip-txt ti-mobile"></span>
+						</div>
+						<div class="spce sm"></div>
+						<h5>API服务和应用</h5>
+						<p>公用API服务器永久免费开放，无后顾之忧， 详细的文档手册，后端轻松接入项目中</p>
+					</div>
+					<div>
+						<div class="icon-md">
+							<span class="clip-txt ti-spray"></span>
+						</div>
+						<div class="spce sm"></div>
+						<h5>6种项目基于API开发</h5>
+						<p>围绕API分别应用前端框架，对应开发不同类型项目，让每个接口都应用在项目中</p>
+					</div>
+					<div>
+						<div class="icon-md">
+							<span class="clip-txt ti-search"></span>
+						</div>
+						<div class="spce sm"></div>
+						<h5>学习前端全套教学</h5>
+						<p>基于API的6个项目，开发过程实录教程， 全面讲解前端主流技术和实战过程</p>
+					</div>
+					<div>
+						<div class="icon-md">
+							<span class="clip-txt ti-harddrives"></span>
+						</div>
+						<div class="spce sm"></div>
+						<h5>答疑和协作开发群</h5>
+						<p>开设项目学习交流群， 基于API互助学习，在老师的帮助组织大家下一起协作开发</p>
+					</div>
+					<div>
+						<div class="icon-md">
+							<span class="clip-txt ti-comments"></span>
+						</div>
+						<div class="spce sm"></div>
+						<h5>给你项目和经验</h5>
+						<p>每个项目都是很好的毕业设计题材， 也可完善功能商用， 更重要的是获得技术和开发经验</p>
+					</div>
+					<div>
+						<div class="icon-md">
+							<span class="clip-txt ti-bolt"></span>
+						</div>
+						<div class="spce sm"></div>
+						<h5>掌握前端全套技能</h5>
+						<p>授之于渔，基于API开发自己的前端项目，学的快学的稳，寓学于练，实现工作目标</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rect1">
+		<img alt="" src="image/shape-1.png">
+	</div>
+	<div class="rect2">
+		<img alt="" src="image/shape-2.png">
+	</div>
+	<div class="rect3">
+		<img alt="" src="image/shape-3.png">
+	</div>
+	<div class="rect4">
+		<img alt="" src="image/shape-4.png">
+	</div>
+</section>
+<!-- End feature -->
 
-        .ant-spin-dot-item:nth-child(4) {
-          bottom: 0;
-          left: 0;
-          -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
-        }
+<!-- project -->
+<section id="overview" class="sec-pad-lg grdnt-purple light">
+	<div class="container">
+		<div class="row res-center-sm">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">基于API全端系列项目</h3>
+				<p class="large">不同端应用，不同场景，不同技术，不同团队，用同一接口</p>
+			</div>
+			<div class="tab tab-horizon">
+				<div class="tab-menu text-center">
+					<ul class="tab-list nav nav-tabs">
+						<li class="owl-dot active">
+							<a href="#lA" data-toggle="tab">移动端</a>
+						</li>
+						<li class="owl-dot">
+							<a href="#lB" data-toggle="tab">小程序</a>
+						</li>
+						<li class="owl-dot">
+							<a href="#lC" data-toggle="tab">APP项目</a>
+						</li>
+						<li class="owl-dot">
+							<a href="#lD" data-toggle="tab">PC端</a>
+						</li>
+						<li class="owl-dot">
+							<a href="#lE" data-toggle="tab">管理平台</a>
+						</li>
+						<li class="owl-dot">
+							<a href="#lF" data-toggle="tab">项目后台</a>
+						</li>
 
-        .ant-spin-dot-spin {
-          -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-          -webkit-animation: antrotate 1.2s infinite linear;
-          animation: antRotate 1.2s infinite linear;
-        }
+					</ul>
+				</div>
+				<div class="spce"></div>
+				<div class="spce"></div>
+				<div class="tab-content-block col-md-10 col-md-offset-1">
+					<!--<div class="col-sm-6 text-center res-margin-sm">
+						<div class="slide-side">
+						&lt;!&ndash;	<img class="phone" alt="" src="image/phone.png">&ndash;&gt;
+							<img class="phone" alt="" src="image/pc.png">
+							<div class="owl-carousel nplr app-slide">
+								<div>
+									<img alt="" src="image/screen.jpg">
+								</div>
+								<div>
+									<img alt="" src="image/screen2.jpg">
+								</div>
+								<div>
+									<img alt="" src="image/screen3.jpg">
+								</div>
+								<div>
+									<img alt="" src="image/screen4.jpg">
+								</div>
+								<div>
+									<img alt="" src="image/screen5.jpg">
+								</div>
+								<div>
+									<img alt="" src="image/screen5.jpg">
+								</div>
 
-        .ant-spin-lg .ant-spin-dot {
-          width: 32px;
-          height: 32px;
-          font-size: 32px;
-        }
+							</div>
+						</div>
+					</div>-->
+					<div class="tab-content col-sm-12 grad-prple">
+						<!-- flight section -->
+						<div class="tab-pane fade active in" id="lA">
+							<div class="col-sm-6 text-center res-margin-sm">
+								<div class="slide-side">
+									<img class="phone" alt="" src="image/phone1.png">
+								</div>
+							</div>
+							<div class="col-sm-6 right-dir-col hover-grow">
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-id-badge"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目介绍
+										</h6>
+										<p>这是EWSHOP的移动的项目，通过手机浏览器或在微信中，以及微信公众中打开使用</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-plug"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											开发技术
+										</h6>
+										<p>ES6 + VUE3框架 + VUE-CLI脚手架 + VANT组件库 + Axios +  EWSHOP API</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-comment-alt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											文档和源码
+										</h6>
+										<p>《项目需求说明书》， 《项目设计说明书》， 《项目原型设计》， 新版完整可运行的项目源码</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-wallet"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目课程
+										</h6>
+										<p>课程组合：《Web框架通用技术》，《新版Vue3全家桶》、《EWSHOP移动端项目全程实录》</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-bolt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											在线演示
+										</h6>
+										<p>通过手机浏览器访问 -><br> <a>http://shopvue.eduwork.cn</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="lB">
+							<div class="col-sm-6 text-center res-margin-sm">
+								<div class="slide-side">
+									<img class="phone" alt="" src="image/phone2.png">
+								</div>
+							</div>
+							<div class="col-sm-6 right-dir-col hover-grow">
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-id-badge"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目介绍
+										</h6>
+										<p>EWSHOP的小程序，从小程序开发技术应用，到设计和开发，再到上线整个小程序开发流程</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-plug"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											开发技术
+										</h6>
+										<p>微信开发者工具 + WXML + WXSS + ES6 + VANT组件库 + EWSHOP API </p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-comment-alt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											文档和源码
+										</h6>
+										<p>《项目需求说明书》， 《项目设计说明书》， 《项目原型设计》， 新版完整可运行的项目源码</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-wallet"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目课程
+										</h6>
+										<p>三个课程组合：《Web框架通用技术》，《微信小程序开发技术》、《EWSHOP微信小程序全程实录》</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-bolt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											在线演示
+										</h6>
+										<p>通过微信小程序搜索 EWSHOP 应用</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="lC">
+							<div class="col-sm-6 text-center res-margin-sm">
+								<div class="slide-side">
+									<img class="phone" alt="" src="image/phone3.png">
+								</div>
+							</div>
+							<div class="col-sm-6 right-dir-col hover-grow">
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-id-badge"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目介绍
+										</h6>
+										<p>uni-app项目实战，uni-app上手简单,可快速开发小程序、h5、安卓、ios应用。</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-plug"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											开发技术
+										</h6>
+										<p>Uni-app框架  +  HBuilder X +   Vant 组件库 + ES6 + EWSHOP API   </p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-comment-alt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											文档和源码
+										</h6>
+										<p>《项目需求说明书》， 《项目设计说明书》， 《项目原型设计》， 新版完整可运行的项目源码</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-wallet"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目课程
+										</h6>
+										<p>三个课程组合：《Web框架通用技术》，《Uni-APP高级框架应用》、《EWSHOP APP项目全程实录》</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-bolt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											在线演示
+										</h6>
+										<p>通过APP应用商店搜素 EWSHOP，下载安装演示</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="lD">
+							<div class="col-sm-6 text-center res-margin-sm">
+								<div class="slide-side">
+									<img class="phone" alt="" src="image/pc1.png">
+								</div>
+							</div>
+							<div class="col-sm-6 right-dir-col hover-grow">
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-id-badge"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目介绍
+										</h6>
+										<p>PC端的项目（前后端都包含），用户可能通过个人电脑完成商品管理和前台购物的全流程</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-plug"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											开发技术
+										</h6>
+										<p>HTML5 + CSS3 + 标准化页面布局 + jQuery + BootStrap + PHP + MySQL + Composer  </p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-comment-alt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											文档和源码
+										</h6>
+										<p>《项目需求说明书》， 《项目设计说明书》， 《项目原型设计》， 新版完整可运行的项目源码</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-wallet"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目课程
+										</h6>
+										<p>《Web开发基础》、《PHP开发技术》、《EWSHOP商城项目全程实录》</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-bolt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											在线演示
+										</h6>
+										<p>通过PC浏览器访问 -><br> <a>http://shoppc.eduwork.cn</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="lE">
+							<div class="col-sm-6 text-center res-margin-sm">
+								<div class="slide-side">
+									<img class="phone" alt="" src="image/pc2.png">
+								</div>
+							</div>
+							<div class="col-sm-6 right-dir-col hover-grow">
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-id-badge"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目介绍
+										</h6>
+										<p>这是EWSHOP管理后台新版Vue开发版本， 可以对商城后台内容进行管理。</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-plug"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											开发技术
+										</h6>
+										<p>ES6 + VUE3框架 + Vite脚手架 + ElementPlus组件库 + TypeScript + EWSHOP API </p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-comment-alt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											文档和源码
+										</h6>
+										<p>《项目需求说明书》， 《项目设计说明书》， 《项目原型设计》， 新版完整可运行的项目源码</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-wallet"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目课程
+										</h6>
+										<p>课程组合：《Web框架通用技术》，《TS实用教程》、《EWSHOP管理平台Vue版项目全程实录》</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-bolt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											在线演示
+										</h6>
+										<p>通过浏览器访问 -><br> <a>http://ewsvadmin.eduwork.cn</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="lF">
+							<div class="col-sm-6 text-center res-margin-sm">
+								<div class="slide-side">
+									<img class="phone" alt="" src="image/pc3.png">
+								</div>
+							</div>
+							<div class="col-sm-6 right-dir-col hover-grow">
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-id-badge"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目介绍
+										</h6>
+										<p>这是EWSHOP管理后台新版React开发版本， 可以对商城后台内容进行管理。</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-plug"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											开发技术
+										</h6>
+										<p>React
+											+
+											ES6
+											+
+											UmiJS
+											+
+											Antd Pro
+											+
+											EWShop API
+											</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-comment-alt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											文档和源码
+										</h6>
+										<p>《项目需求说明书》， 《项目设计说明书》， 《项目原型设计》， 新版完整可运行的项目源码</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-wallet"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											项目课程
+										</h6>
+										<p>三个课程组合：《Web框架通用技术》，《新版React17全家桶》、《EWSHOP管理平台React版项目全程实录》</p>
+									</div>
+								</div>
+								<div class="list">
+									<div class="icon icon-bg-md">
+										<span class="clip-txt ti-bolt"></span>
+									</div>
+									<div class="text">
+										<h6 class="fw-700">
+											在线演示
+										</h6>
+										<p>通过浏览器访问 -><br> <a>http://ewsradmin.eduwork.cn</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
 
-        .ant-spin-lg .ant-spin-dot i {
-          width: 14px;
-          height: 14px;
-        }
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+</section>
+<!-- End project -->
 
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-          .ant-spin-blur {
-            background: #fff;
-            opacity: 0.5;
-          }
-        }
+<!--  -->
+<section class="sec-pad-lg brdr-btm pb-0">
+	<div class="container">
+		<div class="row">
+			<div class="overview flx-container align-flx-center flx-off-xs row col-md-10 col-md-offset-1">
+				<div class="col-sm-5 res-margin-sm">
+					<div class="overview-text res-center-sm">
+						<h3>定制私有API</h3>
+						<div class="spce sm"></div>
+						<p>通过SAAS架构可以为你单独部署私有的API服务，在自己的项目中专享，　不受其他学员操作影响，提供单独的后台操作，独立进行网站设置和数据操作。　</p>
+						<div class="btn-holder grad-prple">
+							<a class="btn grdnt-purple" href="">
+								<i class="fa ti-plug" aria-hidden="true"></i><span>马上定制</span></a>
+							<a class="btn grdnt-purple fill" href="">
+								<i class="fa ti-bolt clip-txt" aria-hidden="true"></i><span class="clip-txt">学习API开发</span></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-offset-1">
+					<div class="overview-img animated wow fadeIn" data-wow-delay=".2s">
+						<img alt="" src="image/img-d.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- // -->
 
-        @-webkit-keyframes antSpinMove {
-          to {
-            opacity: 1;
-          }
-        }
+<!-- Counter -->
+<section class="sec-pad-sm">
+	<div class="container">
+		<div class="row">
+			<div class="static-warapper text-center grad-prple">
+				<div class="col-sm-3 counter-wrapper res-margin-sm">
+					<div class="top-row">
+						<div class="icon icon-md">
+							<span class="ti-heart clip-txt"></span>
+						</div>
+						<h2 class="counter">153100</h2>
+					</div>
+					<p>手册访问量</p>
+				</div>
+				<div class="col-sm-3 counter-wrapper res-margin-sm">
+					<div class="top-row">
+						<div class="icon icon-md">
+							<span class="ti-import clip-txt"></span>
+						</div>
+						<h2 class="counter">221430</h2>
+					</div>
+					<p>API请求</p>
+				</div>
+				<div class="col-sm-3 counter-wrapper">
+					<div class="top-row">
+						<div class="icon icon-md">
+							<span class="ti-plug clip-txt"></span>
+						</div>
+						<h2 class="counter">3217</h2>
+					</div>
+					<p>项目接入</p>
+				</div>	
+				<div class="col-sm-3 counter-wrapper">
+					<div class="top-row">
+						<div class="icon icon-md">
+							<span class=" ti-comments-smiley clip-txt"></span>
+						</div>
+						<h2 class="counter">23217</h2>
+					</div>
+					<p>用户数</p>
+				</div>				
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End counter -->
 
-        @keyframes antSpinMove {
-          to {
-            opacity: 1;
-          }
-        }
+<!-- video -->
+<section class="grdnt-purple parallaxie style-wave-alt  overly" style='background: url("image/bg-parallax.jpg")'>
+	<div class="container sec-pad-lg">
+		<div class="row">
+			<div class="text-center light">
+				<h3>EWSHOP学习大礼包</h3>
+				<p class="large">私人定制API服务器 +  前端基础课程（100课时以上） + 前端高级框架课程（100课时以上）+  6个端项目源码 + 项目全套开发教程  +  API开发教程 + 群辅导</p>
+				<p class="large">活动价格：<span style="color:yellow"><small>￥</small>256</span></p>
+			</div>
+			<div class="btn-holder text-center grad-prple">
+				<a class="btn-round video" href="https://www.lmonkey.com/structures/6"><i class="fa fa-play clip-txt" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End video -->
 
-        @-webkit-keyframes antRotate {
-          to {
-            -webkit-transform: rotate(405deg);
-            transform: rotate(405deg);
-          }
-        }
+<!-- gift bag -->
+<section id="pricing" class="sec-pad-lg pb-0  bg-animate grad-prple">
+	<div class="container">
+		<div class="row">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">成长大礼包</h3>
+				<p class="large">从实战中来， 到实战中去</p>
+			</div>
+			<div class="pricing-btn text-center">
+				<label class="toggler toggler--is-active" id="filt-monthly">技术学习</label>
+				<div class="toggle grdnt-purple">
+					<input type="checkbox" id="switcher" class="check">
+					<b class="b switch"></b>
+				</div>
+				<label class="toggler" id="filt-hourly">项目实战</label>
+			</div>
+			<div class="spce"></div>
+			<div class="pricing text-center row">
+				<div class="col-md-offset-1 col-md-10">
+					<div class="row">
+						<div id="monthly" class="clearfix model">
+							<div class="col-xs-4 col-sm-4">
+								<div class="pricing-table res-margin-sm">
+									<div class="pricing-header">
+										<p class="fw-600 large">前端基础</p>
+										<div class="main-pricing">
+											<h1 class="clip-txt">80<span class="meta fw-300"> / 课时</span></h1>
+										</div>
+									</div>
+									<div class="pricing-content">
+										<div class="pricing-feature">
+											<ul>
+												<li>HTML5应用</li>
+												<li>CSS5应用</li>
+												<li>JavaScript编程</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-footer grad-prple">
+										<a class="btn grdnt-purple fill" href="#"><span class="clip-txt">立即学习</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4 col-sm-4">
+								<div class="pricing-table feat res-margin-sm">
+									<div class="pricing-header">
+										<p class="fw-600 large">Web工程化</p>
+										<div class="main-pricing">
+											<h1 class="clip-txt">20<span class="meta fw-300"> / 课时</span></h1>
+										</div>
+									</div>
+									<div class="pricing-content">
+										<div class="pricing-feature">
+											<ul>
+												<li>Node.js/NPM</li>
+												<li>Webpack/sass/TS</li>
+												<li>ES6/Axios</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-footer">
+										<a class="btn grdnt-purple" href="#">立即学习</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4 col-sm-4">
+								<div class="pricing-table res-margin-sm">
+									<div class="pricing-header">
+										<p class="fw-600 large">前端高级框架</p>
+										<div class="main-pricing">
+											<h1 class="clip-txt">70<span class="meta fw-300"> / 课时</span></h1>
+										</div>
+									</div>
+									<div class="pricing-content">
+										<div class="pricing-feature">
+											<ul>
+												<li>Vue3全家桶</li>
+												<li>React全家桶</li>
+												<li>小程序/Uni-APP</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-footer grad-prple">
+										<a class="btn grdnt-purple fill" href="#"><span class="clip-txt">立即学习</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="hourly" class="none clearfix model">
+							<div class="col-xs-4 col-sm-4">
+								<div class="pricing-table res-margin-sm">
+									<div class="pricing-header">
+										<p class="fw-600 large">EWSHOP PC端</p>
+										<div class="main-pricing">
+											<h1 class="clip-txt">120<span class="meta fw-300"> / 个技术点</span></h1>
+										</div>
+									</div>
+									<div class="pricing-content">
+										<div class="pricing-feature">
+											<ul>
+												<li>模版引擎模式开发</li>
+												<li>前后端分离模式开发</li>
+												<li>响应式模式开发</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-footer grad-prple">
+										<a class="btn grdnt-purple fill" href="#"><span class="clip-txt">参与开发</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4 col-sm-4">
+								<div class="pricing-table feat res-margin-sm">
+									<div class="pricing-header">
+										<p class="fw-600 large">EWSHOP移动端项目</p>
+										<div class="main-pricing">
+											<h1 class="clip-txt">70<span class="meta fw-300"> / 个模块</span></h1>
+										</div>
+									</div>
+									<div class="pricing-content">
+										<div class="pricing-feature">
+											<ul>
+												<li>移动端开发</li>
+												<li>小程序开发</li>
+												<li>APP开发</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-footer">
+										<a class="btn grdnt-purple" href="#">参与开发</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4 col-sm-4">
+								<div class="pricing-table res-margin-sm">
+									<div class="pricing-header">
+										<p class="fw-600 large">管理平台模板开发</p>
+										<div class="main-pricing">
+											<h1 class="clip-txt">3<span class="meta fw-300"> / 种实现</span></h1>
+										</div>
+									</div>
+									<div class="pricing-content">
+										<div class="pricing-feature">
+											<ul>
+												<li>VUE版后台</li>
+												<li>React版后台</li>
+												<li>Bootstrap版后台</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-footer grad-prple">
+										<a class="btn grdnt-purple fill" href="#"><span class="clip-txt">参与开发</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+		<div class="rect1">
+			<img alt="" src="image/shape-1.png">
+		</div>
+		<div class="rect2">
+			<img alt="" src="image/shape-2.png">
+		</div>
+		<div class="rect3">
+			<img alt="" src="image/shape-3.png">
+		</div>
+		<div class="rect4">
+			<img alt="" src="image/shape-4.png">
+		</div>
+		<div class="row logo sec-pad-sm pb-0 col-md-10 col-md-offset-1">
+			<div class="logo-container row text-center">
+				<div class="col-sm-3 col-xs-6 res-margin-sm">
+					<img alt="" style="max-height:40px; max-width:160px" src="image/client-img-1.png">
+				</div>
+				<div class="col-sm-3 col-xs-6 res-margin-sm">
+					<img alt="" style="max-height:45px; max-width:160px" src="image/client-img-2.png">
+				</div>
+				<div class="col-sm-3 col-xs-6 res-margin-sm">
+					<img alt="" style="max-height:40px; max-width:160px" src="image/client-img-3.png">
+				</div>
+				<div class="col-sm-3 col-xs-6">
+					<img alt="" style="max-height:40px; max-width:160px" src="image/client-img-4.png">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End  gift bag -->
 
-        @keyframes antRotate {
-          to {
-            -webkit-transform: rotate(405deg);
-            transform: rotate(405deg);
-          }
-        }
-      </style>
-      <div
-        style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          min-height: 420px;
-        "
-      >
-        <img src="/logo.png" alt="logo" width="256" />
-        <div class="page-loading-warp">
-          <div class="ant-spin ant-spin-lg ant-spin-spinning">
-            <span class="ant-spin-dot ant-spin-dot-spin"
-              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
-              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
-            ></span>
-          </div>
-        </div>
-        <div
-          style="display: flex; align-items: center; justify-content: center"
-        >
-          <img src="/logo.png" width="32" style="margin-right: 8px" />
-          在线商城
-        </div>
-      </div>
-    </div>
+<!-- homework -->
+<section class="sec-pad-lg bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">学员优秀作品展示</h3>
+				<p class="large">有近万名学员通过EWSHOP项目学习，掌握了全套Web技能，走上了工作岗位，有近千名同学的毕业设计选择EWSHOP，顺利毕业。</p>
+			</div>
+			<div class="screenshot">
+				<div  class="owl-carousel screen nplr screen-loop">
+					<div>
+						<img alt="" src="image/screenshot-img-1.jpg">
+					</div>
+					<div>
+						<img alt="" src="image/screenshot-img-2.jpg">
+					</div>
+					<div>
+						<img alt="" src="image/screenshot-img-3.jpg">
+					</div>
+					<div>
+						<img alt="" src="image/screenshot-img-4.jpg">
+					</div>
+					<div>
+						<img alt="" src="image/screenshot-img-5.jpg">
+					</div>
+					<div>
+						<img alt="" src="image/screenshot-img-6.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End homework -->
 
-    <script src="/umi.028b2c28.js"></script>
-  </body>
+<!-- comment -->
+<section class="sec-pad-lg grdnt-purple light">
+	<div class="section-text text-center">
+		<h3 class="clr-blue">学员的评价</h3>
+		<p class="large">技术真想学的好， 项目开发不能少， 各大平台各种找， EwShop才是宝。<br>跟课畅学不费脑，参考文档代码搞，大牛在线给指导，协作开发有陪跑。</p>
+	</div>
+	<div  class="owl-carousel quote">
+		<div class="quote-item">
+			<div class="quote-text">
+				<div class="rating">
+					<ul class="rating-list">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><p>(5)</p></li>
+					</ul>
+				</div>
+				<p>这个接口对我帮助太大了， 让我把我的项目变成了动态的系统，非常感谢。</p>
+			</div>
+			<div class="spce md"></div>
+			<img alt="" src="image/profile-img1.jpg">
+			<div class="reg-tag clearfix">
+				<h6 class="heading">
+					鸿蒙码客</h6>
+				<p>学APP开发</p>
+			</div>
+		</div>
+		<div class="quote-item">
+			<div class="quote-text">
+				<div class="rating">
+					<ul class="rating-list">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><p>(5)</p></li>
+					</ul>
+				</div>
+				<p>这套接口真的好用， 没有BUG，按文档就可以使用， 太赞了。 </p>
+			</div>
+			<div class="spce md"></div>
+			<img alt="" src="image/profile-img2.jpg">
+			<div class="reg-tag clearfix">
+				<h6 class="heading">前端小小白兔
+				</h6>
+				<p>前端学员</p>
+			</div>
+		</div>
+		<div class="quote-item">
+			<div class="quote-text">
+				<div class="rating">
+					<ul class="rating-list">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><p>(5)</p></li>
+					</ul>
+				</div>
+				<p>我按项目课程，用Uni-app做出了小程序和APP， 现在使用React后台也要做完了。</p>
+			</div>
+			<div class="spce md"></div>
+			<img alt="" src="image/profile-img3.jpg">
+			<div class="reg-tag clearfix">
+				<h6 class="heading">热锅串串</h6>
+				<p>想做前端程序员</p>
+			</div>
+		</div>
+		<div class="quote-item">
+			<div class="quote-text">
+				<div class="rating">
+					<ul class="rating-list">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><p>(5)</p></li>
+					</ul>
+				</div>
+				<p>一个项目用一个接术， 都用同一个接口， 真是受益匪浅呀， 感谢平台。</p>
+			</div>
+			<div class="spce md"></div>
+			<img alt="" src="image/profile-img4.jpg">
+			<div class="reg-tag clearfix">
+				<h6 class="heading">
+					耳又子木</h6>
+				<p>Web全栈开发程序员</p>
+			</div>
+		</div>
+		<div class="quote-item">
+			<div class="quote-text">
+				<div class="rating">
+					<ul class="rating-list">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><p>(5)</p></li>
+					</ul>
+				</div>
+				<p>我是看课程到的接口，和课程中的用法一样，要着课程做项目， 有学技术又收获项目，让我学会了前端。 </p>
+			</div>
+			<div class="spce md"></div>
+			<img alt="" src="image/profile-img6.jpg">
+			<div class="reg-tag clearfix">
+				<h6 class="heading">浩然正气</h6>
+				<p>正在做毕业设计</p>
+			</div>
+		</div>
+		<div class="quote-item">
+			<div class="quote-text">
+				<div class="rating">
+					<ul class="rating-list">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><p>(5)</p></li>
+					</ul>
+				</div>
+				<p>说真，这个接口不能用作商业项目， 但学习使用，真是全网找不到第二个，强烈推荐。</p>
+			</div>
+			<div class="spce md"></div>
+			<img alt="" src="image/profile-img5.jpg">
+			<div class="reg-tag clearfix">
+				<h6 class="heading">80后大叔学编程</h6>
+				<p>转行学编程</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End comment -->
+
+<!-- Team -->
+<div id="team" class="team sec-pad-lg pb-0 bg-animate grad-prple">
+	<div class="container">
+		<div class="row">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">项目导师团队</h3>
+				<p class="large">加入你的导师团队，跟着他的项目组，一起迭代开发EWSHOP，掌握全套开发技术，提升项目开发能力 </p>
+			</div>
+			<div class="team-member-profile text-center">
+				<div class="col-md-3 col-sm-6">
+					<div class="team-mem-col res-margin">
+						<div class="link">
+							<div class="team-hover grdnt-purple">
+								<div class="team-hover-content">
+									<ul class="extra-link">
+										<li><a href="#"><i class="fa" aria-hidden="true">拜</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">他</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">为</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">师</i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="image">
+								<img alt="" src="image/team-member.jpg">
+							</div>
+						</div>
+						<div class="spce"></div>
+						<div class="member-name">
+							<h5>高洛峰</h5>
+							<p class="meta">技术畅销书作者</p>
+						</div>							
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="team-mem-col res-margin">
+						<div class="link">
+							<div class="team-hover grdnt-purple">
+								<div class="team-hover-content">
+									<ul class="extra-link">
+										<li><a href="#"><i class="fa" aria-hidden="true">拜</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">他</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">为</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">师</i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="image">
+								<img alt="" src="image/team-member-2.jpg">
+							</div>
+						</div>
+						<div class="spce"></div>
+						<div class="member-name">
+							<h5>孙建魁</h5>
+							<p class="meta">技术的天花板</p>
+						</div>							
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="team-mem-col res-margin">
+						<div class="link">
+							<div class="team-hover grdnt-purple">
+								<div class="team-hover-content">
+									<ul class="extra-link">
+										<li><a href="#"><i class="fa" aria-hidden="true">拜</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">他</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">为</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">师</i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="image">
+								<img alt="" src="image/team-member-3.jpg">
+							</div>
+						</div>
+						<div class="spce"></div>
+						<div class="member-name text-center">
+							<h5>徐枭雄</h5>
+							<p class="meta">他的课讲的最好</p>
+						</div>							
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="team-mem-col">
+						<div class="link">
+							<div class="team-hover grdnt-purple">
+								<div class="team-hover-content">
+									<ul class="extra-link">
+										<li><a href="#"><i class="fa" aria-hidden="true">拜</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">他</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">为</i></a></li>
+										<li><a href="#"><i class="fa" aria-hidden="true">师</i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="image">
+								<img alt="" src="image/team-member-4.jpg">
+							</div>
+						</div>
+						<div class="spce"></div>
+						<div class="member-name">
+							<h5>刘万套</h5>
+							<p class="meta">技术已被封神</p>
+						</div>							
+					</div>
+				</div>
+			</div>
+			<div class="rect1">
+				<img alt="" src="image/shape-1.png">
+			</div>
+			<div class="rect2">
+				<img alt="" src="image/shape-2.png">
+			</div>
+			<div class="rect3">
+				<img alt="" src="image/shape-3.png">
+			</div>
+			<div class="rect4">
+				<img alt="" src="image/shape-4.png">
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end Team  -->
+<!--Blog  -->
+<section id="blog" class="sec-pad-lg bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">产品说明</h3>
+				<p class="large">深入了解API、了解成长模式、了解EWSHOP、带你上车，老司机驾驶， 详细了解一下吧， 路过别错过。</p>
+			</div>
+			<div class="post row">
+				<div class="col-md-6 res-margin">
+					<div class="post-col">
+						<a  href="#"><img alt="" src="image/blog-img-1.jpg"></a>
+						<div class="post-content">
+							<div class="spce md"></div>
+							<ul class="post-meta clearfix">
+								<li>2022/05/04</li>
+								<li>
+									<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>112</a>
+								</li>
+								<li>
+									<a href=""><i class="fa fa-comment-o" aria-hidden="true"></i>22</a>
+								</li>
+							</ul>
+							<div class="post-text">
+								<a href="#">
+									<h4 style="font-size:1.6em">加入大牛项目组，带着你一起做项目，在实战中学习， 获得主流开发技能</h4>
+									<div class="spce sm"></div>
+									<p>加入大牛项目组，带着你一起做项目，在实战中学习， 获得主流开发技能加入大牛项目组，带着你一起做项目，在实战中学习， 获得主流开发技能加入大牛项目组，带着你一起做项目，在实战中学习， 获得主流开发技能</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 res-margin">
+					<div class="post-col res-margin-sm">
+						<a  href="#"><img alt="" src="image/blog-img-2.jpg"></a>
+						<div class="post-content">
+							<div class="spce"></div>
+							<ul class="post-meta clearfix">
+								<li>2022/03/24</li>
+								<li>
+									<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>112</a>
+								</li>
+								<li>
+									<a href=""><i class="fa fa-comment-o" aria-hidden="true"></i>22</a>
+								</li>
+							</ul>
+							<div class="post-text">
+								<a href="#">
+									<h5>EWSHOP的公用API和私有API的对比说明，独享API的开设流程</h5>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="spce"></div>
+					<div class="post-col">
+						<a  href="#"><img alt="" src="image/blog-img-3.jpg"></a>
+						<div class="post-content">
+							<div class="spce"></div>
+							<ul class="post-meta clearfix">
+								<li>2022/02/15</li>
+								<li>
+									<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>112</a>
+								</li>
+								<li>
+									<a href=""><i class="fa fa-comment-o" aria-hidden="true"></i>22</a>
+								</li>
+							</ul>
+							<div class="post-text">
+								<a href="#">
+									<h5>EWSHOP全端6个项目说明，这些项目对你的帮助有多大</h5>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End blog -->
+
+<!-- download-section -->
+<section class="grdnt-purple">
+	<div class="parallax-bg sec-pad-lg" style='background-image: url("image/bg-parallax-c.png")' data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row">
+				<div class="row light ">
+					<div class="col-md-5 col-sm-7">
+						<h2>开通独享API，加入项目组</h2>
+						<p class="large">学习主流开发技术，获取全套项目源码，加微大牛微信，拉入项目组，大牛带着做项目</p>
+						<div class="btn-holder btn-holder2">
+							<a href="#"><img alt="" width="150px" src="image/qrcode.png"></a>
+							<a href="#"><img alt="" width="150px"  src="image/qrcode.png"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End download-section -->
+
+<!-- faq -->
+<section class="sec-pad-lg grad-prple">
+	<div class="container">
+		<div class="row">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">常见问题</h3>
+				<p class="large">这些问题没有找到你想要的答案，可以加老师微信，直接聊聊</p>
+			</div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1 faq">
+					<div class="row">
+						<div class="panel-group col-md-6 res-margin show" id="accordion" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+											<i class="more-less glyphicon glyphicon-minus"></i>
+											接口不能用了吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+									<div class="panel-body">
+										<p>这是问的最多的问题，不是接口不能用了， 而是自己调用时写错了， 多数都是接口地址中的控制器名称写错了，
+											或是给接口传的参数不符合接口要求。 <span style="color:#702dda">这套接口一直可以正常使用，并且永久免费</span>,
+											由于是公用的接口， 使用的人数现在还比较多， 累计有2万多名学员使用过，
+											每个学员都可以调用接口测试使用， 避免不了会更改里面的数据， 会出现数据内容杂乱现象，
+											所以设置了定时任务，每周还原一次数据。如果需要独享服务器，可以付费开通专享接口。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingTwo">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											文档中测试账号登录不了?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+									<div class="panel-body">
+										<p>  获取公开数据不需要授权， 但一些管理类和用户信息处理的接口，是需要授权的用户才能访问，
+											 例如，开发管理平台、 前后用户登录、购物流程、个人中心， 定单管理等接口应用。
+											在API文档手册中提供了两个测试应用账号， 因为是公用的，
+											总有学员测试时改变这两个账号密码， 在数据还原之前，导致其他人无法使用的问题。
+											不过，现在已经限制更新默认账号密码了，
+											如果已经通过接口调用完成了用户管理模块的开发， 可自行注册和管理新账号。</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											接口还会升级吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+									<div class="panel-body">
+										<p>
+											这个接口也是一个独立的项目， 是项目一定要不断的迭代升级，也要不停的处理用户反馈的BUG，
+											还要确保安全性， 随着用户的不断增涨，还要不断横向扩展Web服务器， 优化架构，确保项目稳定高效的运行。
+											接口每次一个大的升级，都会按RESTful API的规范，在接口URL中加上版本，也会在文档中说明不同版本的差异。
+											但EWSHOP API是专为学习提供的后端服务接口，不会扩展很多功能，降低复杂度，但会确保业务流程畅通，业务相似的只仅保留一份。
+											如果有商业需要，可以联系开发者单独定义接口版本。
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-group col-md-6 res-margin" id="accordion2" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne2">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne" class="">
+											<i class="more-less glyphicon glyphicon-minus"></i>
+											不看课程可以直接写项目吗？
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne2">
+									<div class="panel-body">
+										<p>当然可以， 接口文档编写的很详细， 也很规范， 如果有一定基础，是可以直接写项目的。
+											因为我们是以学习为目的， 项目练习是手段，
+											所以还是建议，先看一遍项目课程， 这样可以掌握标准的开发流程， 再自己动手实践， 这样可能学习的效率更高，
+											写的代码也会更规范一些。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingTwo2">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											接口如何使用有课程吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
+									<div class="panel-body">
+										<p>没有单独的接口使用课程， 也没必要提供这个课程， 因为接口的使用已经提供了详细的API文档， 按标准格式编写，
+											每个接口的使用规范介绍的非常清楚。
+											如果想深入了解，也有这套接口开发过程的课程，但必须有一定的后期基础才能学习技口开发。
+											另外， 每个项目都是一步步实现， 实现每个模块都需要用到接口， 所以在项目课程中虽然没有统一讲解接口，
+											但用到的接口都会讲解具体如何使用。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree2">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree2" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											没有基础的可以直接按项目课程学习吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseThree2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree2">
+									<div class="panel-body">
+										<p>不能， 虽然每个项目讲解都很详细， 从需求讲解开始、再讲到项目设计、再到项目架构、最后到项目上线，也会一步步实现每个模块，全部是手搞代码。
+											但项目课程中只是安全围绕项目进行讲解， 也会讲解一些项目中用到的基础部分接术，但并不多。如果没有基础，在项目课程前面的课程，
+										也提供了详细的基础教不课程， 建议先学基础，再通过项目课进行实战。</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-group col-md-6 res-margin" id="accordion3" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne3">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseOne3" aria-expanded="true" aria-controls="collapseOne" class="">
+											<i class="more-less glyphicon glyphicon-minus"></i>
+											项目可以免费下载吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne3">
+									<div class="panel-body">
+										<p>不能， 需要购买课程后， 在课程列表中下载项目源码和项目文档。</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingTwo3">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseTwo3" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											做项目时有Bug可以帮忙解决吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseTwo3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo3">
+									<div class="panel-body">
+										<p>不仅可以咨询老师， 也有互助开发组， 一同学习一起完善， 推动EWSHOP成为主流的教学级项目，成为教学项目的标准。</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree3">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree3" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											项目可以上线使用吗 ?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree3">
+									<div class="panel-body">
+										<p>可以， 但必须有作者授权， 因为这些是教学项目， 只为提高学员的提术手平， 掌握项目开发流程和规范， 是以教学为目的，
+											不能未经授权用于商业用途， 如发现有商业应用， 有权追究法律责任。
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-group col-md-6 res-margin" id="accordion4" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne4">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseOne4" aria-expanded="true" aria-controls="collapseOne" class="">
+											<i class="more-less glyphicon glyphicon-minus"></i>
+											如何加入项目组让老师带着做项目?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne4">
+									<div class="panel-body">
+										<p>第一步：申请， 第二步：面试， 第三步：规化路线， 第四步：进入项目组， 详细加老师微信咨询。</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingTwo4">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseTwo4" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											 进入项目组收费吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseTwo4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo4">
+									<div class="panel-body">
+										<p>收费， 学习效果是参加培训班的二倍， 但费用也只有培训班的三分之一。</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree4">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseThree4" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											是开发新项目基于这个接口的项目?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseThree4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree4">
+									<div class="panel-body">
+										<p>都有， 先以这些项目练手，因为有课程，有已开发好的源码，可以很快完成，掌握开发技能和流程。 导师还会提供其他项目接口，在没有课程，只有需求的情况下，导师指导完成项目， 这可以将被动学习，变成主动学习。</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-group col-md-6 res-margin" id="accordion5" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne5">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseOne5" aria-expanded="true" aria-controls="collapseOne" class="">
+											<i class="more-less glyphicon glyphicon-minus"></i>
+											怎么学习这些项目效果最好？
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne5" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne5">
+									<div class="panel-body">
+										<p>高效的学习，一定要有学习环境， 加入大牛团队， 有人帮你规划学习路线， 提供学习课程和资料， 指导学习， 项目研讨协作开发， 同组互助。</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingTwo5">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseTwo5" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											我能挑一个项目做我的毕业设计吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseTwo5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo5">
+									<div class="panel-body">
+										<p>可以作为毕业设计， 但不能建议直接使用源码， 毕竟我们是以学习为目的， 另外，还要注意默认项目使用的公有接口， 录入的数据，别人可以修改，系统也会定期还原，
+											为了不影响答辩， 还建议申请专享接口。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree5">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseThree5" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											基础弱也能加入项目组和老师一起做项目吗?
+										</a>
+									</h4>
+								</div>
+								<div id="collapseThree5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree5">
+									<div class="panel-body">
+										<p>大牛单独组建的项目组， 每个成员加入之前，需要大牛一对一的面试， 测试基础进入不同的阶段，如果基础很弱，
+											大牛会安排你去孵化池， 给你提供课程和指导， 先补充能量。 一段时间后再拉入成长库， 完成任务安排， 测试合格后，再安排重新进入项目组。
+										 </p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="bg-light contact-form pd-30 faql">
+									<div class="controls">
+										<div class="form-group">
+											<input type="submit" class="btn btn2 grdnt-purple active2" value="API使用问题">
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn2 grdnt-purple" value="项目课程问题">
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn2 grdnt-purple" value="项目使用问题">
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn2 grdnt-purple" value="浸项目组学习">
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn2 grdnt-purple" value="其他相关问题">
+										</div>
+									</div>
+									<div class="messages" style="padding-right:50px">
+
+										<div>
+											<img alt="" width="150px" src="image/qrcode.png">
+										</div>
+										<div style="margin-top:20px">
+											加老师微信，详细咨询
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--  -->
+
+<!--Footer  -->
+<footer class="footer-wrapper style-wave-alt grdnt-purple sec-pad light">
+	<div class="container footer-content">
+		<div class="row">
+			<div class="section-text text-center">
+				<h3 class="clr-blue">开通VIP特权</h3>
+				<p class="large">学习方向:10整套学习路径大课，
+					精选课程:300+门<br>
+					课程时长:5000+小时，
+					项目实战:100+个，
+					套配置资料:无限下载</p>
+			</div>
+			<div class="row">
+				<div class="sub-input subscribe col-md-6 col-md-offset-3 custom-form animated wow fadeInUp" data-wow-delay=".1s">
+					<form class="custom-form" action="https://www.lmonkey.com/vip" method="post">
+						<div class="form-group">
+							<label style="display:none;" for="subscribe-email"><i class="fa fa-envelope-o" aria-hidden="true"></i></label>
+							<input type="text" name="vip" readonly placeholder="马上开通VIP， 尊享10项特权 -->" class="subscribe-email form-control" id="subscribe-email">
+						</div>
+						<button type="submit" onclick="window.location='https://www.lmonkey.com/vip'" class="btn grdnt-purple">开通VIP</button>
+					</form>
+					<div class="text-center light result-box">
+						<div class="success-message"></div>
+						<div class="error-message"></div>
+					</div>
+				</div>
+			</div>
+			<div class="spce md"></div>
+			<ul class="social-holder text-center light">
+				<li><a href="#" title="EWSHOP API文档"><i class="fa" aria-hidden="true">API<br>文档</i></a></li>
+				<li><a href="#" title="EWSHOP PC端项目演示"><i class="fa" aria-hidden="true">PC<br>项目</i></a></li>
+				<li><a href="#" title="EWSHOP APP商项目演示"><i class="fa" aria-hidden="true">APP<br>应用</i></a></li>
+				<li><a href="#" title="EWSHOP 移动端项目演示"><i class="fa" aria-hidden="true">移动<br>端</i></a></li>
+				<li><a href="#" title="EWSHOP 小程序项目演示"><i class="fa" aria-hidden="true">小程<br>序</i></a></li>
+				<li><a href="#" title="EWSHOP 管理平台项目演示"><i class="fa" aria-hidden="true">管理<br>平台</i></a></li>
+				<li><a href="#" title="EWSHOP 后台操作项目演示"><i class="fa" aria-hidden="true">项目<br>后台</i></a></li>
+			</ul>
+			<div class="spce"></div>
+			<div class="copyright text-center light">Copyright &copy; 2022.<a href="https://www.lmonkey.com">学习猿地</a> All rights reserved.</div>
+		</div>			
+	</div>
+</footer>
+<!-- End Footer -->
+
+<!-- script -->
+<script src="js/vendor.bundle.js"></script>
+<script src="js/script.js"></script>
+<script src="js/jquery.min.js"></script>
+</body>
 </html>
+<script>
+
+	$('.faql .btn2').on("click", function () {
+		let index = $('.faql .btn2').index($(this))
+		$('.faql .btn2').removeClass("active2").eq(index).addClass("active2");
+		$(".faq .panel-group").removeClass("show").eq(index).addClass("show");
+	})
+
+
+</script>
