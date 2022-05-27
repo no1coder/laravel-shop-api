@@ -18,7 +18,7 @@ class PermissionSeeder extends Seeder
         // 清空缓存
         app()['cache']->forget('spatie.permission.cache');
 
-        // 添加权限
+        // // 添加权限
         $permissions = [
             // 用户管理
             ['name' => 'users.index', 'cn_name' => '用户列表', 'guard_name' => 'api'],

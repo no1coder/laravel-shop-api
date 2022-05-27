@@ -8,8 +8,8 @@ $params = [
         'serializer:array', // 减少transformer的包裹层
         'bindings' // 支持路由模型注入
     ],
-    'limit' => 60,
-    'expires' => 1
+    // 'limit' => 120,
+    // 'expires' => 1
 ];
 
 $api->version('v1', $params, function ($api) {
@@ -34,12 +34,16 @@ $api->version('v1', $params, function ($api) {
          * 个人中心
          */
         // 用户详情
+         
+        $api->post('user/avatar', [\App\Http\Controllers\Api\UserController::class, 'updateAvatar']);
+        // $api->patch('user/avatar', [\App\Http\Controllers\Api\UserController::class, 'updateAvatar']);
+
+
         $api->get('user', [\App\Http\Controllers\Api\UserController::class, 'userInfo']);
         // 更新用户信息
         $api->put('user', [\App\Http\Controllers\Api\UserController::class, 'updateUserInfo']);
         // 更新头像
-        $api->patch('user/avatar', [\App\Http\Controllers\Api\UserController::class, 'updateAvatar']);
-
+  
         /**
          * 购物车
          */

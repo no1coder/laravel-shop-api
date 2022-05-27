@@ -36,15 +36,29 @@ class UserController extends BaseController
      */
     public function updateAvatar(Request $request)
     {
+
+        
         $request->validate([
             'avatar' => 'required',
         ], [
             'avatar.required' => '头像 不能为空'
         ]);
-
-        $user = auth('api')->user();
-        $user->avatar = $request->input('avatar');
-        $user->save();
-        return $this->response->noContent();
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar')->getClientOriginalName();
+            $extension = pathinfo($file, PATHINFO_EXTENSION);
+            $path = $request->file('avatar')->store(
+            'avatars/'.\Str::uuid().$extension, 'oss'
+            );
+             $user = auth('api')->user();
+            $user->avatar = $path;
+            $user->save();
+            return $this->response->array(['avatar'=>oss_url($path)]);
+        }else{
+            $user = auth('api')->user();
+            $user->avatar = $request->input('avatar');
+            $user->save();
+            return $this->response->noContent();  
+        }
+      
     }
 }

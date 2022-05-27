@@ -18,9 +18,9 @@ class CheckPermission
     {
         // 验证用户是否具有请求权限
         $user = auth('api')->user();
-        if (!$user->can($request->route()->getName())) {
-            abort(403);
-        }
+        // if (!$user->can($request->route()->getName())) {
+        //     abort(403);
+        // }
 
         return $next($request);
     }

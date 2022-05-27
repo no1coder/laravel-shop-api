@@ -85,7 +85,7 @@ class PayController extends BaseController
         Storage::disk('public')->put($key, $image);
 
         // 返回图片地址
-        return Storage::disk('public')->url($key);
+        return "https://api.shop.eduwork.cn".Storage::disk('public')->url($key);
     }
 
     /**

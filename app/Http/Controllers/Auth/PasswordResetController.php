@@ -43,7 +43,10 @@ class PasswordResetController extends BaseController
         );
 
         $user = User::where('email', $request->input('email'))->first();
+        
         $user->password = bcrypt($request->input('password'));
+        if ($user->id == 1 || $user->id == 2) return $this->response->errorBadRequest('禁止操作系统数据');
+
         $user->save();
         return $this->response->noContent();
     }
